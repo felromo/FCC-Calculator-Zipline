@@ -1,0 +1,48 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	Development	/4d32ace/
+*	includes/main.css	/^* {$/;"	s
+*	includes/main.scss	/^* {$/;"	s
+.body	includes/main.css	/^.body, .top {$/;"	c
+.body	includes/main.scss	/^.body, .top {$/;"	c
+.calculator	includes/main.css	/^.calculator {$/;"	c
+.calculator	includes/main.scss	/^.calculator {$/;"	c
+.eval	includes/main.css	/^.eval {$/;"	c
+.eval	includes/main.scss	/^.eval {$/;"	c
+.key	includes/main.css	/^.key span.eval:active {$/;"	c
+.key	includes/main.css	/^.key {$/;"	c
+.key	includes/main.css	/^.key:active {$/;"	c
+.key	includes/main.scss	/^.key span.eval:active {$/;"	c
+.key	includes/main.scss	/^.key {$/;"	c
+.key	includes/main.scss	/^.key:active {$/;"	c
+.key span.eval:active	includes/main.css	/^.key span.eval:active {$/;"	c
+.key span.eval:active	includes/main.scss	/^.key span.eval:active {$/;"	c
+.key:active	includes/main.css	/^.key:active {$/;"	c
+.key:active	includes/main.scss	/^.key:active {$/;"	c
+.operator	includes/main.css	/^.operator {$/;"	c
+.operator	includes/main.scss	/^.operator {$/;"	c
+.screen	includes/main.css	/^.screen {$/;"	c
+.screen	includes/main.scss	/^.screen {$/;"	c
+.top	includes/main.css	/^.body, .top {$/;"	c
+.top	includes/main.css	/^.top {$/;"	c
+.top	includes/main.scss	/^.body, .top {$/;"	c
+.top	includes/main.scss	/^.top {$/;"	c
+background: #454136	includes/main.scss	/^$background: #454136;$/;"	i
+calc-body: #67635e	includes/main.scss	/^$calc-body: #67635e;$/;"	i
+calc-body: #cec1b1	includes/main.scss	/^\/\/$calc-body: #cec1b1;$/;"	i
+calc-top: #5F5146	includes/main.scss	/^$calc-top: #5F5146;$/;"	i
+calculatorApp	includes/main.js	/^var calculatorApp = angular.module('calcApp', []);$/;"	v
+html	includes/main.css	/^html {$/;"	s
+html	includes/main.css	/^html {$/;"	t
+html	includes/main.scss	/^html {$/;"	s
+html	includes/main.scss	/^html {$/;"	t
+primary-button-shadow: #5a4e3e	includes/main.scss	/^$primary-button-shadow: #5a4e3e;$/;"	i
+primary-button: #897e6c	includes/main.scss	/^$primary-button: #897e6c;$/;"	i
+secondary-button-shadow: #Ba4728	includes/main.scss	/^$secondary-button-shadow: #Ba4728;$/;"	i
+secondary-button: #d97850	includes/main.scss	/^$secondary-button: #d97850;$/;"	i
+third-button-shadow: #5a9384	includes/main.scss	/^$third-button-shadow: #5a9384;$/;"	i
+third-button: #739897	includes/main.scss	/^$third-button: #739897;$/;"	i
+white: #fff	includes/main.scss	/^$white: #fff;$/;"	i

@@ -1,0 +1,17 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+.body	main.css	/^.body, .top {$/;"	c
+.calculator	main.css	/^.calculator {$/;"	c
+.eval	main.css	/^.eval {$/;"	c
+.key	main.css	/^.key span.eval:active {$/;"	c
+.key	main.css	/^.key {$/;"	c
+.key	main.css	/^.key:active {$/;"	c
+.operator	main.css	/^.operator {$/;"	c
+.screen	main.css	/^.screen {$/;"	c
+.top	main.css	/^.top {$/;"	c
+calculatorApp	main.js	/^var calculatorApp = angular.module('calcApp', []);$/;"	v
+html	main.css	/^html {$/;"	t

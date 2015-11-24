@@ -1,0 +1,45 @@
+<html ng-app="calcApp">
+  <head>
+    <title>Calculator For FreeCodeCamp</title>
+    <link href="includes/main.css" rel="stylesheet"/>
+    <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+  </head>
+  <body ng-controller="bodyController as bodyCtl">
+
+    <div class="calculator">
+      <div class="top">
+        <div class="screen">
+          {{bodyCtl.screen}}
+        </div> <!-- end of screen -->
+      </div> <!-- end of top -->
+      <div class="body">
+        <span class="key operator" ng-click="bodyCtl.clearEverything()">CE</span>
+        <span class="key operator">C</span>
+        <span class="key operator">&radic;</span>
+        <span class="operator key">&plusmn;</span>
+        <span class="key" ng-click="bodyCtl.catchValue(7)">7</span>
+        <span class="key" ng-click="bodyCtl.catchValue(8)">8</span>
+        <span class="key" ng-click="bodyCtl.catchValue(9)">9</span>
+        <span class="operator key" ng-click="bodyCtl.multiply()">x</span>
+        <span class="key" ng-click="bodyCtl.catchValue(4)">4</span>
+        <span class="key" ng-click="bodyCtl.catchValue(5)">5</span>
+        <span class="key" ng-click="bodyCtl.catchValue(6)">6</span>
+        <span class="operator key" ng-click="bodyCtl.divide()">&divide;</span>
+        <span class="key" ng-click="bodyCtl.catchValue(1)">1</span>
+        <span class="key" ng-click="bodyCtl.catchValue(2)">2</span>
+        <span class="key" ng-click="bodyCtl.catchValue(3)">3</span>
+        <span class="operator key" ng-click="bodyCtl.subtract()">-</span>
+        <span class="key" ng-click="bodyCtl.catchValue(0)">0</span>
+        <span class="key">.</span>
+        <span class="eval key" ng-click="bodyCtl.equals()">=</span>
+        <span class="operator key" ng-click="bodyCtl.add()">+</span>
+      </div><!-- end of body -->
+    </div> <!-- end of calculator -->
+
+    <!-- javascript dependencies -->
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="includes/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+$background: #454136;
+//$calc-body: #cec1b1;
+$calc-body: #67635e;
+$calc-top: #5F5146;
+$primary-button: #897e6c;
+$secondary-button: #d97850;
+$third-button: #739897;
+
+$primary-button-shadow: #5a4e3e;
+$secondary-button-shadow: #Ba4728;
+$third-button-shadow: #5a9384;
+
+$white: #fff;
+
+* {
+  margin: 0;
+  padding: 0;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+html {
+  height: 100%;
+  background: $background;
+  font-family: 'Questrial', sans-serif;
+}
+
+.calculator {
+  width: 300px;
+  height: auto;
+  background: $calc-body;
+  margin: 100px auto;
+  padding: 15px 20px 9px;
+  border-radius: 6px;
+  box-shadow: 0px 4px $calc-top, 0px 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+
+.screen {
+  height: 50px;
+  width: 85%;
+  margin: 0 auto 10px;
+  padding: 0 5px 0 0;
+  background: rgba(0, 0, 0, 0.2);
+  text-align: right;
+  line-height: 50px;
+  letter-spacing: 2px;
+  border-radius: 3px;
+  color: $white;
+  font-size: 20px;
+  /* border: thin solid $background; */
+  /* border-bottom: thin solid rgba(0, 0, 0, 0.2); */
+  border-right: thin solid rgba(0, 0, 0, 0.2);
+  border-left: thin solid rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);
+  font-family: 'Orbitron', sans-serif;
+}
+
+.body, .top {
+  overflow: hidden;
+}
+
+.top {
+  /* background: $calc-top; */
+}
+
+.key {
+  float: left;
+  position: relative; 
+  top: 0;
+  left: 1px;
+
+  cursor: pointer;
+
+  width: 60px;
+  height: 36px;
+
+  background: $primary-button;
+  border-radius: 3px;
+
+  margin: 0 7px 11px 5px;
+  color: $white;
+  font-size: 15px;
+  border-top: thin solid $primary-button-shadow;
+  border-right: thin solid $primary-button-shadow;
+  border-left: thin solid $primary-button-shadow;
+  box-shadow: 0px 4px $primary-button-shadow;
+  line-height: 36px;
+  text-align: center;
+  transition: all 0.2s ease;
+} 
+
+.operator {
+  background: $secondary-button;
+  border-top: thin solid $secondary-button-shadow;
+  border-right: thin solid $secondary-button-shadow;
+  border-left: thin solid $secondary-button-shadow;
+  box-shadow: 0px 4px $secondary-button-shadow;
+}
+
+.eval {
+  background: $third-button;
+  border-top: thin solid $third-button-shadow;
+  border-right: thin solid $third-button-shadow;
+  border-left: thin solid $third-button-shadow;
+  //box-shadow: 0px 4px $third-button-shadow;
+  box-shadow: 0px 4px #437165;
+}
+
+.key:active {
+  box-shadow: 0px 0px $primary-button;
+  top: 4px;
+}
+
+.key span.eval:active {
+  box-shadow: 0px 0px $third-button;
+  top: 4px;
+}
+
