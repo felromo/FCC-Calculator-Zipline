@@ -163,11 +163,13 @@ calculatorApp.controller('bodyController', ['calculatorFactory', function (calcu
   self.multiply = function (a, b) {
     console.log("screen is: " + self.screen);
     console.log("stored value is: " + calculatorFactory.returnValue());
-    self.screen = calculatorFactory.performOperation(calculatorFactory.multiplyOperation);
+    self.screen = calculatorFactory.performOperation(calculatorFactory.multiplyOperation).toString();
+    self.performing_operation = true;
   };
 
   self.divide = function (a, b) {
-    self.screen = calculatorFactory.performOperation(calculatorFactory.divideOperation);
+    self.screen = calculatorFactory.performOperation(calculatorFactory.divideOperation).toString();
+    self.performing_operation = true;
   };
 
   self.add = function () {
@@ -176,7 +178,8 @@ calculatorApp.controller('bodyController', ['calculatorFactory', function (calcu
   };
 
   self.subtract = function (a, b) {
-    self.screen = calculatorFactory.performOperation(calculatorFactory.subtractOperation);
+    self.screen = calculatorFactory.performOperation(calculatorFactory.subtractOperation).toString();
+    self.performing_operation = true;
   };
 
   self.equals = function () {
@@ -192,16 +195,6 @@ calculatorApp.controller('bodyController', ['calculatorFactory', function (calcu
 
   self.init();
     
-  // calculatorFactory.pushToBuffer(1);
-  // calculatorFactory.pushToBuffer(0);
-  // calculatorFactory.pushToBuffer(0);
-  // calculatorFactory.performOperation(calculatorFactory.multiplyOperation);
-  // calculatorFactory.setPreviousOperation(calculatorFactory.multiplyOperation);
-  // calculatorFactory.pushToBuffer(1);
-  // calculatorFactory.pushToBuffer(0);
-  // calculatorFactory.performOperation(calculatorFactory.equalsOperation);
-  // console.log(calculatorFactory.returnValue());
-
 }]);
 
 
