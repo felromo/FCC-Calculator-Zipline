@@ -96,6 +96,33 @@ calculatorApp.factory('calculatorFactory', function () {
   return calculator;
 });
 
+calculatorApp.controller('evalController', [function () {
+  var self = this;
+  self.screen = "0";
+  self.buffer = "";
+  self.stored = "";
+  self.initial = true; 
+  self.init = function () {
+
+  };
+
+  self.cathValue = function (value) {
+    self.buffer += value;
+    self.screen += value;
+  };
+  self.add = function () {
+    self.stored = eval(stored + buffer);
+  };
+  self.commitBuffer = function () {
+    if (initial) {
+      self.stored = buffer; 
+      self.buffer = "";
+    }
+    self.stored = eval(stored + buffer);
+    console.log("Just want the update");
+  };
+}]);
+
 calculatorApp.controller('bodyController', ['calculatorFactory', function (calculatorFactory) {
 
   var self = this;
@@ -111,6 +138,7 @@ calculatorApp.controller('bodyController', ['calculatorFactory', function (calcu
       calculatorFactory.pushToBuffer(value);
       self.screenHandler(value);
     } else {
+      // if the user was to edit the value being passed in the application
       console.log("Invalid type");
     }
 
@@ -122,9 +150,14 @@ calculatorApp.controller('bodyController', ['calculatorFactory', function (calcu
   };
 
   self.screenHandler = function (value) {
-    // if operation is done we want to stop concatenating
-    if (self.performing_operation) self.screen += value.toString();
-    else self.screen = value.toString();
+    // if you have clicked an operation we dont want to append we want to replace the screen with a new buffer
+    if (self.performing_operation) {
+      self.performing_operation = false;
+      self.screen = "0";
+    }
+    // if we are at the beggining of the oparation do not append
+    if (self.screen.charAt(0) === "0") self.screen = value.toString();
+    else self.screen += value.toString();
   };
 
   self.multiply = function (a, b) {
@@ -138,7 +171,8 @@ calculatorApp.controller('bodyController', ['calculatorFactory', function (calcu
   };
 
   self.add = function () {
-    self.screen = calculatorFactory.performOperation(calculatorFactory.addOperation);
+    self.screen = calculatorFactory.performOperation(calculatorFactory.addOperation).toString();
+    self.performing_operation = true;
   };
 
   self.subtract = function (a, b) {
@@ -147,11 +181,13 @@ calculatorApp.controller('bodyController', ['calculatorFactory', function (calcu
 
   self.equals = function () {
     self.screen = calculatorFactory.performOperation(calculatorFactory.equalsOperation);
+    self.performing_operation = false;
   };
 
   self.clearEverything = function () {
     calculatorFactory.CE();
-    self.screen = 0;
+    self.screen = "0";
+    self.performing_operation = false;
   };
 
   self.init();
@@ -165,7 +201,7 @@ calculatorApp.controller('bodyController', ['calculatorFactory', function (calcu
   // calculatorFactory.pushToBuffer(0);
   // calculatorFactory.performOperation(calculatorFactory.equalsOperation);
   // console.log(calculatorFactory.returnValue());
-    
+
 }]);
 
 
