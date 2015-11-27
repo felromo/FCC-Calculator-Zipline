@@ -46,7 +46,7 @@ calculatorApp.factory('calculatorFactory', function () {
       stored_value = operation(stored_value, calculator.flushBuffer());
       calculator.setPreviousOperation(operation);
       console.log(operation);
-      console.log(stored_value);
+      console.log("factory stored value: " + stored_value);
     } else {
       // this runs when initial is clean
       console.log("should have flushed");
@@ -76,9 +76,13 @@ calculatorApp.factory('calculatorFactory', function () {
     // you can't divide by zer0 silly
     if (b !== 0)
         return a / b;
-    else return null;
+    else {
+      console.log("You can't divide by 0");
+      return null;
+    }
   };
   calculator.multiplyOperation = function (a, b) {
+    console.log("I am multiplying " + a + ", " + b);
     return a * b;
   };
 
@@ -95,33 +99,6 @@ calculatorApp.factory('calculatorFactory', function () {
 
   return calculator;
 });
-
-calculatorApp.controller('evalController', [function () {
-  var self = this;
-  self.screen = "0";
-  self.buffer = "";
-  self.stored = "";
-  self.initial = true; 
-  self.init = function () {
-
-  };
-
-  self.cathValue = function (value) {
-    self.buffer += value;
-    self.screen += value;
-  };
-  self.add = function () {
-    self.stored = eval(stored + buffer);
-  };
-  self.commitBuffer = function () {
-    if (initial) {
-      self.stored = buffer; 
-      self.buffer = "";
-    }
-    self.stored = eval(stored + buffer);
-    console.log("Just want the update");
-  };
-}]);
 
 calculatorApp.controller('bodyController', ['calculatorFactory', function (calculatorFactory) {
 
