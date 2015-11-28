@@ -5,6 +5,11 @@ This is one of the Zipline projects for FreeCodeCamp. The goal was to make a ful
 
 Project comes with a codepen preview: placeholder
 
+##### To-Add:
+* C function that only clears the buffer
+* Add Square root funcionality
+* Add negative number functionality
+
 ##### To-Fix:
 * ~~Divide and Multiply Operations change the stored value to 0 if they arent the initial operation~~
 * You can change the operation instead of hitting = and it will replace the previously selectec operation 
