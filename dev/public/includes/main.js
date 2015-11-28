@@ -30,13 +30,17 @@ calculatorApp.factory('calculatorFactory', function () {
   calculator.flushBuffer = function () {
     // after an operation is used (+,-,etc) flush everything from the buffer onto a stored value for later manipulation
     // flushing the buffer means turning the array into a string and then returning it as a number and clearing it
+    // if buffer is empty we dont want to return an empty value that will turn into 0
     var ready_to_use_buffer = "";
-    buffer.forEach(function (value) {
-        ready_to_use_buffer += value;
-    });
-    console.log("the ready to use buffer is: " + ready_to_use_buffer);
-    buffer = [];
-    return Number(ready_to_use_buffer);
+    if (buffer.length > 0) {
+      buffer.forEach(function (value) {
+          ready_to_use_buffer += value;
+      });
+      console.log("the ready to use buffer is: " + ready_to_use_buffer);
+      buffer = [];
+      return Number(ready_to_use_buffer);
+    }
+    else return null;
   };
 
   calculator.performOperation = function (operation) {
@@ -44,10 +48,17 @@ calculatorApp.factory('calculatorFactory', function () {
     if (!initial_clean) {
       // if there is something already stored, run the operation on it & whatever is in the buffer
       console.log("Initial is not clean");
-      stored_value = operation(stored_value, calculator.flushBuffer());
-      calculator.setPreviousOperation(operation);
-      console.log(operation);
-      console.log("factory stored value: " + stored_value);
+      // problem might be right here
+      console.log("this is where it turns to 0");
+      console.log("it runs mult with an empty buffer resulting in 0 and division by   0")
+      var tmp_flushed_buffer = calculator.flushBuffer();
+      if (tmp_flushed_buffer !== null) {
+        stored_value = operation(stored_value, tmp_flushed_buffer);
+      }
+        calculator.setPreviousOperation(operation);
+        console.log(operation);
+        console.log("factory stored value: " + stored_value);
+      
     } else {
       // this runs when initial is clean
       console.log("Initial is clean");
