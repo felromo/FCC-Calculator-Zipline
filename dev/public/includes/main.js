@@ -43,12 +43,14 @@ calculatorApp.factory('calculatorFactory', function () {
     // perform the passed in operation (add/sub/div/mult) 
     if (!initial_clean) {
       // if there is something already stored, run the operation on it & whatever is in the buffer
+      console.log("Initial is not clean");
       stored_value = operation(stored_value, calculator.flushBuffer());
       calculator.setPreviousOperation(operation);
       console.log(operation);
       console.log("factory stored value: " + stored_value);
     } else {
       // this runs when initial is clean
+      console.log("Initial is clean");
       console.log("should have flushed");
       // this is just to 'chamber a function'
       calculator.setPreviousOperation(operation);
@@ -160,7 +162,7 @@ calculatorApp.controller('bodyController', ['calculatorFactory', function (calcu
   };
 
   self.equals = function () {
-    self.screen = calculatorFactory.performOperation(calculatorFactory.equalsOperation);
+    self.screen = calculatorFactory.performOperation(calculatorFactory.equalsOperation).toString();
     self.performing_operation = false;
   };
 
