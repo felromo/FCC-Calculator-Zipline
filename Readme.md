@@ -9,9 +9,9 @@ Project comes with a codepen preview: placeholder
 * C function that only clears the buffer
 * Add Square root funcionality
 * Add negative number functionality
+* Add link to the codepen project once created
 
 ##### To-Fix:
 * ~~Divide and Multiply Operations change the stored value to 0 if they arent the initial operation~~
-* You can change the operation instead of hitting = and it will replace the previously selectec operation 
-* Add link to the codepen project once created
+* ~~You can change the operation instead of hitting = and it will replace the previously selectec operation~~
 * ~~After hitting '=' if you hit a number it appends to the result of the previous operation~~

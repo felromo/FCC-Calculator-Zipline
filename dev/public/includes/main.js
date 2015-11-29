@@ -59,12 +59,9 @@ calculatorApp.factory('calculatorFactory', function () {
     if (!initial_clean) {
       // if there is something already stored, run the operation on it & whatever is in the buffer
       console.log("Initial is not clean");
-      // problem might be right here
-      console.log("this is where it turns to 0");
-      console.log("it runs mult with an empty buffer resulting in 0 and division by   0")
       var tmp_flushed_buffer = calculator.flushBuffer();
       if (tmp_flushed_buffer !== null) {
-        stored_value = operation(stored_value, tmp_flushed_buffer);
+        stored_value = previous_operation(stored_value, tmp_flushed_buffer);
       }
         calculator.setPreviousOperation(operation);
         console.log(operation);
