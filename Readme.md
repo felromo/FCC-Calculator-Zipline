@@ -6,7 +6,7 @@ This is one of the Zipline projects for FreeCodeCamp. The goal was to make a ful
 Project comes with a codepen preview: placeholder
 
 ##### To-Add:
-* C function that only clears the buffer
+* ~~C function that only clears the buffer~~
 * Add Square root funcionality
 * Add negative number functionality
 * Add link to the codepen project once created

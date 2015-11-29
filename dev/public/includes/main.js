@@ -107,6 +107,10 @@ calculatorApp.factory('calculatorFactory', function () {
     return a * b;
   };
 
+  calculator.C = function () {
+    buffer = [];
+  };
+
   calculator.CE = function () {
     buffer = [];
     stored_value = 0;
@@ -190,6 +194,11 @@ calculatorApp.controller('bodyController', ['calculatorFactory', function (calcu
     self.screen = calculatorFactory.performOperation(calculatorFactory.equalsOperation).toString();
     self.performing_operation = false;
     calculatorFactory.setAcceptInput(false);
+  };
+
+  self.clearCurrent = function () {
+    calculatorFactory.C();
+    self.screen = "";
   };
 
   self.clearEverything = function () {
