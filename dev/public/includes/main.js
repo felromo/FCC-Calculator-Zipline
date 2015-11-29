@@ -7,6 +7,7 @@ calculatorApp.factory('calculatorFactory', function () {
   var initial_clean = true;
   var previous_operation;
   var screen = 0;
+  var accept_input = true;
 
 
   calculator.getScreen = function () {
@@ -16,7 +17,9 @@ calculatorApp.factory('calculatorFactory', function () {
 
   calculator.pushToBuffer = function (digit) {
     // every time a calculator button is pressed push its corresponding value onto the buffer
-    buffer.push(digit);
+    if (accept_input) {
+      buffer.push(digit);
+    } 
   };
 
   calculator.setPreviousOperation = function (operation) {
@@ -25,6 +28,14 @@ calculatorApp.factory('calculatorFactory', function () {
 
   calculator.getPreviousOperation = function () {
     return previous_operation;
+  };
+
+  calculator.setAcceptInput = function (value) {
+    accept_input = value;
+  };
+
+  calculator.getAcceptInput = function () {
+    return accept_input;
   };
 
   calculator.flushBuffer = function () {
@@ -141,13 +152,15 @@ calculatorApp.controller('bodyController', ['calculatorFactory', function (calcu
 
   self.screenHandler = function (value) {
     // if you have clicked an operation we dont want to append we want to replace the screen with a new buffer
-    if (self.performing_operation) {
-      self.performing_operation = false;
-      self.screen = "0";
+    if (calculatorFactory.getAcceptInput()) {
+      if (self.performing_operation) {
+        self.performing_operation = false;
+        self.screen = "0";
+      }
+      // if we are at the beggining of the oparation do not append
+      if (self.screen.charAt(0) === "0") self.screen = value.toString();
+      else self.screen += value.toString();
     }
-    // if we are at the beggining of the oparation do not append
-    if (self.screen.charAt(0) === "0") self.screen = value.toString();
-    else self.screen += value.toString();
   };
 
   self.multiply = function (a, b) {
@@ -155,32 +168,38 @@ calculatorApp.controller('bodyController', ['calculatorFactory', function (calcu
     console.log("stored value is: " + calculatorFactory.returnValue());
     self.screen = calculatorFactory.performOperation(calculatorFactory.multiplyOperation).toString();
     self.performing_operation = true;
+    calculatorFactory.setAcceptInput(true);
   };
 
   self.divide = function (a, b) {
     self.screen = calculatorFactory.performOperation(calculatorFactory.divideOperation).toString();
     self.performing_operation = true;
+    calculatorFactory.setAcceptInput(true);
   };
 
   self.add = function () {
     self.screen = calculatorFactory.performOperation(calculatorFactory.addOperation).toString();
     self.performing_operation = true;
+    calculatorFactory.setAcceptInput(true);
   };
 
   self.subtract = function (a, b) {
     self.screen = calculatorFactory.performOperation(calculatorFactory.subtractOperation).toString();
     self.performing_operation = true;
+    calculatorFactory.setAcceptInput(true);
   };
 
   self.equals = function () {
     self.screen = calculatorFactory.performOperation(calculatorFactory.equalsOperation).toString();
     self.performing_operation = false;
+    calculatorFactory.setAcceptInput(false);
   };
 
   self.clearEverything = function () {
     calculatorFactory.CE();
     self.screen = "0";
     self.performing_operation = false;
+    calculatorFactory.setAcceptInput(true);
   };
 
   self.init();
