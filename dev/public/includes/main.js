@@ -117,6 +117,11 @@ calculatorApp.factory('calculatorFactory', function () {
     initial_clean = true;
   };
 
+  calculator.squareRoot = function () {
+    // literally just a wrapper for the sqrt function
+    stored_value = Math.sqrt(stored_value);
+  };
+
   calculator.returnValue = function () {
     return stored_value;
   };
@@ -188,6 +193,11 @@ calculatorApp.controller('bodyController', ['calculatorFactory', function (calcu
     self.screen = calculatorFactory.performOperation(calculatorFactory.subtractOperation).toString();
     self.performing_operation = true;
     calculatorFactory.setAcceptInput(true);
+  };
+
+  self.sqrRoot = function () {
+    calculatorFactory.squareRoot();
+    self.screen = calculatorFactory.returnValue();
   };
 
   self.equals = function () {
