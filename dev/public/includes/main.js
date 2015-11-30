@@ -39,6 +39,10 @@ calculatorApp.factory('calculatorFactory', function () {
     return accept_input;
   };
 
+  calculator.flipSign = function () {
+    // todo  
+  };
+
   calculator.flushBuffer = function () {
     // after an operation is used (+,-,etc) flush everything from the buffer onto a stored value for later manipulation
     // flushing the buffer means turning the array into a string and then returning it as a number and clearing it
@@ -210,6 +214,10 @@ calculatorApp.controller('bodyController', ['calculatorFactory', function (calcu
   self.sqrRoot = function () {
     calculatorFactory.squareRoot();
     self.screen = calculatorFactory.returnValue();
+  };
+
+  self.signHandler = function () {
+    self.screen *= -1;
   };
 
   self.equals = function () {
