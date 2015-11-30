@@ -8,6 +8,7 @@ calculatorApp.factory('calculatorFactory', function () {
   var previous_operation;
   var screen = 0;
   var accept_input = true;
+  var initial_sqrt = false;
 
 
   calculator.getScreen = function () {
@@ -63,6 +64,11 @@ calculatorApp.factory('calculatorFactory', function () {
       if (tmp_flushed_buffer !== null) {
         stored_value = previous_operation(stored_value, tmp_flushed_buffer);
       }
+      else if (initial_sqrt) {
+        stored_value = operation(stored_value, tmp_flushed_buffer);
+        // so that this only runs once
+        initial_sqrt = false;
+      }
         calculator.setPreviousOperation(operation);
         console.log(operation);
         console.log("factory stored value: " + stored_value);
@@ -73,6 +79,7 @@ calculatorApp.factory('calculatorFactory', function () {
       console.log("should have flushed");
       // this is just to 'chamber a function'
       calculator.setPreviousOperation(operation);
+      // nothing to flush atm causing stored_value to be null
       stored_value = calculator.flushBuffer();
       if (operation !== calculator.equalsOperation)
         initial_clean = false;
@@ -119,7 +126,12 @@ calculatorApp.factory('calculatorFactory', function () {
 
   calculator.squareRoot = function () {
     // literally just a wrapper for the sqrt function
-    stored_value = Math.sqrt(stored_value);
+    if (stored_value !== 0) stored_value = Math.sqrt(stored_value);
+    else {
+      stored_value = Math.sqrt(calculator.flushBuffer());
+      initial_sqrt = true;
+      initial_clean = false;
+    }
   };
 
   calculator.returnValue = function () {
