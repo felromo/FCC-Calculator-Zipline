@@ -242,7 +242,7 @@ calculatorApp.controller('bodyController', ['calculatorFactory', function (calcu
 
   self.clearCurrent = function () {
     calculatorFactory.C();
-    self.screen = "";
+    self.screen = "0";
   };
 
   self.clearEverything = function () {
