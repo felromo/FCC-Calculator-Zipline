@@ -9,6 +9,7 @@ calculatorApp.factory('calculatorFactory', function () {
   var screen = 0;
   var accept_input = true;
   var initial_sqrt = false;
+  var sign = 1; // 1 = positive; -1 = negative
 
 
   calculator.getScreen = function () {
@@ -40,7 +41,8 @@ calculatorApp.factory('calculatorFactory', function () {
   };
 
   calculator.flipSign = function () {
-    // todo  
+    // this will flip between 1 and -1 for positive and negative  
+    sign *= -1;
   };
 
   calculator.flushBuffer = function () {
@@ -65,10 +67,15 @@ calculatorApp.factory('calculatorFactory', function () {
       // if there is something already stored, run the operation on it & whatever is in the buffer
       console.log("Initial is not clean");
       var tmp_flushed_buffer = calculator.flushBuffer();
+      // even if the number is not negative its converting, need a way to track
+      // positive numbers
+      // this turns the nell into 0 causing a out of range error
       if (tmp_flushed_buffer !== null) {
+        tmp_flushed_buffer *= sign;
         stored_value = previous_operation(stored_value, tmp_flushed_buffer);
       }
       else if (initial_sqrt) {
+        tmp_flushed_buffer *= sign;
         stored_value = operation(stored_value, tmp_flushed_buffer);
         // so that this only runs once
         initial_sqrt = false;
@@ -81,13 +88,19 @@ calculatorApp.factory('calculatorFactory', function () {
       // this runs when initial is clean
       console.log("Initial is clean");
       console.log("should have flushed");
+      var tmp_flushed_buffer2 = calculator.flushBuffer();
+      // if operations are randomly being clicked without input do nothing
+      if (stored_value === 0 && tmp_flushed_buffer2 === null) return 0;
       // this is just to 'chamber a function'
       calculator.setPreviousOperation(operation);
       // nothing to flush atm causing stored_value to be null
-      stored_value = calculator.flushBuffer();
+      stored_value = tmp_flushed_buffer2;
+      stored_value *= sign;
       if (operation !== calculator.equalsOperation)
         initial_clean = false;
     }
+    // reset the sign back to positive
+    sign = 1;
     return stored_value;
   };
 
@@ -218,6 +231,7 @@ calculatorApp.controller('bodyController', ['calculatorFactory', function (calcu
 
   self.signHandler = function () {
     self.screen *= -1;
+    calculatorFactory.flipSign();
   };
 
   self.equals = function () {
