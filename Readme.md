@@ -16,4 +16,3 @@ Project comes with a codepen preview: placeholder
 * ~~You can change the operation instead of hitting = and it will replace the previously selectec operation~~
 * ~~After hitting '=' if you hit a number it appends to the result of the previous operation~~
 * ~~Fix bug where using square root on a number that hasnt been processed by an operation returns 0 (due to stored_value being empty)~~
-* when using C after an operation is done (you really should be using CE) the screen 'locks up' and does not display anything else until yoyu CE
