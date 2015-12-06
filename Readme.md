@@ -3,13 +3,14 @@
 ## About
 This is one of the Zipline projects for FreeCodeCamp. The goal was to make a fully functional calculator 
 
-Project comes with a codepen preview: placeholder
+Project comes with a codepen preview: http://codepen.io/tyrantwarship/pen/WreQyw
+![Preview](./preview.png?raw=true)
 
 ##### To-Add:
 * ~~C function that only clears the buffer~~
 * ~~Add Square root funcionality~~
 * ~~Add negative number functionality~~
-* Add link to the codepen project once created
+* ~~Add link to the codepen project once created~~
 
 ##### To-Fix:
 * ~~Divide and Multiply Operations change the stored value to 0 if they arent the initial operation~~
