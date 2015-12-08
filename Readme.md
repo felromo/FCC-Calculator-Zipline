@@ -11,6 +11,8 @@ Project comes with a codepen preview: http://codepen.io/tyrantwarship/pen/WreQyw
 * ~~Add Square root funcionality~~
 * ~~Add negative number functionality~~
 * ~~Add link to the codepen project once created~~
+* More complex operation chaining
+* Decimal Value input (output works)
 
 ##### To-Fix:
 * ~~Divide and Multiply Operations change the stored value to 0 if they arent the initial operation~~
