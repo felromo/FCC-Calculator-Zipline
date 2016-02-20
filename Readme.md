@@ -19,3 +19,9 @@ Project comes with a codepen preview: http://codepen.io/tyrantwarship/pen/WreQyw
 * ~~You can change the operation instead of hitting = and it will replace the previously selectec operation~~
 * ~~After hitting '=' if you hit a number it appends to the result of the previous operation~~
 * ~~Fix bug where using square root on a number that hasnt been processed by an operation returns 0 (due to stored_value being empty)~~
+
+## Credits
+CSS Styles heavily learnt and inspired by this amazing tutorial http://thecodeplayer.com/walkthrough/javascript-css3-calculator<Paste>
+Colors losely based on this dribble https://dribbble.com/shots/878863-Calculator-Clock
+
+Thanks to both for their awesome work
